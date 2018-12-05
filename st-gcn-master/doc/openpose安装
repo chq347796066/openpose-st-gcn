@@ -1,0 +1,35 @@
+ubuntu16.04安装openpose，gpu版本
+参考文档
+https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/installation.md#requirements-and-dependencies
+
+1.检查适合本机的gpu nvidia驱动，
+	cat /proc/driver/nvidia/version
+       本机为384.130
+2.安装nvidia
+	sudo apt-get upgrade
+	sudo apt-get update
+	sudo apt-get install nvidia-384
+	sudo apt-get update
+	查看是否安装成功
+	nvidia-smi(上面步骤不行的话，可重启再执行)
+3.安装opencv  可参考http://www.cnblogs.com/zhenglisai/p/9596103.html
+	查看是否安装成功:pkg-config --modversion opencv 有版本号则安装成功
+4.安装cmake-gui
+		sudo apt-get install cmake-qt-gui
+5,安装cuda
+    执行sudo ubuntu/install_cuda.sh
+6.安装cudnn
+	执行sudo ubuntu/install_cudnn.sh
+7.安装caffe
+	执行sudo bash ./ubuntu/install_cmake.sh
+8.打开cmake gui ,执行cmake-gui
+9,参考openpose文档，配置openpose
+10,进入build目录
+	make -j`nproc`
+11,运行openpose 
+	./build/examples/openpose/openpose.bin --video examples/media/video.avi
+12,出现视频，成功。
+	
+	
+	
+	

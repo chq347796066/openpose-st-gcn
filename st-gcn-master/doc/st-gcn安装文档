@@ -1,0 +1,22 @@
+st-gcn安装及执行流程
+1.st-gcn项目依赖于Openpose项目，执行此项目前，需要先安装好openpose
+2.环境需要python3.5环境，请先安装python3.5的环境。
+3.PyTorch,https://pytorch.org/,选择对应版本的pytorch,python需要3.5以上，选择完成后
+	终端上执行run this command
+4.安装 ffmpeg ,sudo apt-get install ffmpeg
+5.安装python的其它依赖， pip install -r requirements.txt
+6，下载其它依赖
+ cd torchlight; python setup.py install; cd ..
+7,下载models
+bash tools/get_models.sh
+8.执行st-gcn的demo(以本机为例，先进入python3.5的环境source venv/bin/activate)
+格式：
+python main.py demo --openpose <path to openpose build directory> [--video <path to your video> --device <gpu0> <gpu1>]
+例子:
+python main.py demo --openpose /home/chenhaiquan/openpose/build --video /home/chenhaiquan/openpose/examples/media/video1.avi
+注:后面的device <gpu0>可省略，自已会去寻找可用的gpu
+在执行此命令时，可能会报python少包，可通过pip3 install '包名'下载
+成功的话，会在data/demo_result/.里面生成一个与你训练模型名字对应的视频文件。
+
+
+	
